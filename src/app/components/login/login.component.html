@@ -1,44 +1,66 @@
 <div class="container h-100 d-flex">
   <div class="row align-items-center justify-content-center">
-    <div class="col-md-7">
-      <h3>Login</h3>
+    <div class="col-md-10">
+      <h3>Entre com o seu usuário</h3>
       <p class="mb-4">
-        Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur
-        adipisicing.
+        Nessa pagina, você vai conseguir se logar e ter uma experiência incrivel
+        com a nossa plataforma.
       </p>
-      <form action="#" method="post">
+      <form [formGroup]="formulario">
         <div class="form-group first">
-          <label for="username">E-mail</label>
+          <label for="username">E-mail, CPF ou celular</label>
           <input
-            type="text"
             class="form-control"
-            placeholder="exemplo@gmail.com"
-            id="username"
+            id="email"
+            type="email"
+            formControlName="email"
+            placeholder="name@exemple.com"
           />
         </div>
         <div class="form-group last mb-3">
           <label for="password">Senha</label>
           <input
-            type="password"
             class="form-control"
-            placeholder="Digite sua senha"
-            id="password"
+            id="senha"
+            type="password"
+            formControlName="senha"
+            placeholder="Senha"
           />
         </div>
 
-        <div class="d-flex mb-5 align-items-center">
-          <label class="control control--checkbox mb-0"
-            ><span class="caption">Lembre-me</span>
-            <input type="checkbox" checked="checked" />
-            <div class="control__indicator"></div>
-          </label>
+        <div class="d-flex">
+          <div class="mb-3 form-check row-cols-1">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+            />
+            <label class="form-check-label" for="exampleCheck1"
+              >Lembrar conta.
+            </label>
 
-          <span class="ml-auto"
-            ><a href="#" class="forgot-pass">Esqueceu a senha?</a></span
-          >
+            <span class="col"
+              ><a href="#" class="forgot-pass">Esqueci a senha</a></span
+            >
+          </div>
         </div>
-
-        <input type="submit" value="Log In" class="btn btn-block btn-primary" />
+        <div class="d-grid gap-2">
+          <button
+            type="submit"
+            value="Log In"
+            [disabled]="!formulario.valid"
+            class="btn btn-primary"
+          >
+            Entrar na minha conta
+          </button>
+          <button
+            class="btn btn-outline-primary"
+            type="button"
+            href="/src/app/components/register/register.component.html"
+          >
+            Criar uma conta
+          </button>
+        </div>
       </form>
     </div>
   </div>
